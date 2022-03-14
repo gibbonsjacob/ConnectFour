@@ -18,8 +18,7 @@ function drawBoard() {
   spotR = width / 10;
   for (let i = 0; i < cols; i++){
     x = width/cols;
-    line(x*i, 0, x*i, height); 
-         
+    line(x*i, 0, x*i, height);    
   }
   for (let i = 0; i < rows; i++){
     y = height/rows;
@@ -31,8 +30,6 @@ function drawBoard() {
         fill(255);
       }
       ellipse(x * j + x / 2, y * i + y / 2,  spotR);
-
-
     }   
   }
 }
@@ -41,17 +38,14 @@ function establishBoard(){
   for (let i = 0; i < rows; i++){
     board[i] = [];
     for (let j = 0; j < cols; j++){
-      board[i][j] = ''
-
+      board[i][j] = '';
     }
   }
 }
 
 
 
-function getMove(j){
-  
-    
+function getMove(j){    
     let minRow = 0
     for (let i = 0; i < rows; i++){
       if (minRow + 1 != rows){
@@ -64,7 +58,6 @@ function getMove(j){
 }
 
 function GameOver(){
-  
   // Horizontal 
   winner = false;
   for (let i = 0; i < rows; i++){
@@ -76,7 +69,6 @@ function GameOver(){
       }
     }
   }
-
 
   // vertical 
 
@@ -103,7 +95,6 @@ function GameOver(){
     }
   }
 
-
   // Top left to bottom right
 
   for (let i = 0; i < requiredToWin - 1; i++){
@@ -115,12 +106,8 @@ function GameOver(){
       }
     }
   }
-
-
   return winner
 }
-
-
 
 
 function setup() {
@@ -137,8 +124,7 @@ function setup() {
 function draw() {
   background(220)
   drawBoard();
-  turn = turnCount % 2
-
+  turn = turnCount % 2;
   if (GameOver()){
     noLoop();
     // turn changes on click, so we have to change it one more time before showing winner
@@ -170,5 +156,3 @@ function mouseClicked(){
     turnCount++;
   }
 }
-
-
