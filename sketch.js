@@ -5,7 +5,7 @@ let spotR;
 let players;
 let mousePX;
 let openCol;
-let turnCount = 1; // we'll keep track of who's turn it is using the modulus function and this variable
+let turnCount = 1; // we'll keep track of whose turn it is using the modulus function and this variable
 let winner;
 let requiredToWin = 4;
 
@@ -18,11 +18,11 @@ function drawBoard() {
   spotR = width / 10;
   for (let i = 0; i < cols; i++){
     x = width/cols;
-    line(x*i, 0, x*i, height);    
+    line(x * i, 0, x * i, height);    
   }
   for (let i = 0; i < rows; i++){
     y = height/rows;
-    line(0, y*i, width, y*i);   
+    line(0, y * i, width, y * i);   
     for (let j = 0; j < cols; j++){
       if (board[i][j] != ''){
         fill(board[i][j]);
@@ -131,12 +131,9 @@ function draw() {
     turnCount++;
     turn = turnCount % 2;    
     mousePX.html('Winner is ' + players[turn])
-
   } else {
     mousePX.html('Current Turn: ' + players[turn]);
   }
-
-
 }
 
 
